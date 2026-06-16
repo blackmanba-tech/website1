@@ -1,0 +1,71 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kami · 自助领取</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <div class="app">
+    <header class="nav">
+      <div class="nav-inner">
+        <span class="logo">Kami</span>
+        <span class="nav-hint">自助卡密领取</span>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="hero">
+        <h1>选择档位，<br/>立即获取充值链接</h1>
+        <p class="hero-desc">扫完码记得把QQ号发给我哦</p>
+      </section>
+
+      <section class="form-section">
+        <form id="distributeForm">
+          <div class="field">
+            <label for="category">充值档位</label>
+            <div class="select-wrap">
+              <select id="category" name="category" required>
+                <option value="">请选择充值档位</option>
+              </select>
+              <span class="select-arrow">▼</span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="quantity">数量</label>
+            <input id="quantity" name="quantity" type="number" min="1" max="50" value="1" required />
+            <p class="field-hint">几个QQ号就选择几个链接</p>
+          </div>
+
+          <button id="submitBtn" type="submit">
+            <span class="btn-text">立即领取</span>
+            <span class="btn-loading" hidden>生成中…</span>
+          </button>
+
+          <p id="status" class="status-msg"></p>
+        </form>
+      </section>
+
+      <section class="result-section" id="resultSection" hidden>
+        <div class="result-header">
+          <h2>领取成功</h2>
+          <button type="button" class="copy-all-btn" data-copy-all="page">复制全部链接</button>
+        </div>
+        <ul id="result" class="result-list"></ul>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast" class="toast" hidden></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
+
+
